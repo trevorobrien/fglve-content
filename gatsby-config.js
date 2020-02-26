@@ -1,8 +1,8 @@
 module.exports = {
   siteMetadata: {
-    title: `Gatsby Default Starter`,
-    description: `Kick off your next, great Gatsby project with this default starter. This barebones starter ships with the main Gatsby configuration files you might need.`,
-    author: `@gatsbyjs`,
+      title: `Epsy Articles`,
+      description: `Contentful > Netlify Test.`,
+      author: `YOUR_NAME`,
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
@@ -25,6 +25,13 @@ module.exports = {
         theme_color: `#663399`,
         display: `minimal-ui`,
         icon: `src/images/gatsby-icon.png`, // This path is relative to the root of the site.
+      },
+    },
+    {
+      resolve: `gatsby-source-contentful`,
+      options: {
+        spaceId: `fvsuh5n2bawh`,
+        accessToken: `s9e18M-vqg0QVWrD8UhKx1kZQNOGrJPTK56OEhTW_PE`
       },
     },
     // this (optional) plugin enables Progressive Web App + Offline functionality

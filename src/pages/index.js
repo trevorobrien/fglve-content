@@ -1,21 +1,43 @@
 import React from "react"
 import { Link } from "gatsby"
-
 import Layout from "../components/layout"
-import Image from "../components/image"
 import SEO from "../components/seo"
+import "./index.css"
 
-const IndexPage = () => (
-  <Layout>
-    <SEO title="Home" />
-    <h1>Hi people</h1>
-    <p>Welcome to your new Gatsby site.</p>
-    <p>Now go build something great.</p>
-    <div style={{ maxWidth: `300px`, marginBottom: `1.45rem` }}>
-      <Image />
-    </div>
-    <Link to="/page-2/">Go to page 2</Link>
-  </Layout>
-)
+const IndexPage = ({ data }) => {
+  const articles = data.allContentfulArticleBase.edges
+  return (
+    <Layout>
+      <SEO title="Home" keywords={[`epsy`, 'content']} />
+      <h1>{"All Articles"}</h1>
+      <div className="articles">
+        {articles.map(({ node: article }) => (
+          <div key={article.id}>
+            <Link to={`/article/${article.slug}`}>{article.headline}</Link>
+          </div>
+        ))}
+        <span className="mgBtm__24" />
+      </div>
+    </Layout>
+  )
+}
 
 export default IndexPage
+
+export const pageQuery = graphql`
+  query BlogPostsPageQuery {
+      allContentfulArticleBase(limit: 1000) {
+        edges {
+          node {
+            id
+            headline
+            slug
+            body {
+              body
+            }
+            tags
+          }
+        }
+      }
+    }
+`
