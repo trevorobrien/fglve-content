@@ -3,11 +3,9 @@ Starter project for delivery of content for foxglove app using contentful and Ne
 
 ## 🚀 Quick start
 
-1.  **Start developing.**
-
-    Navigate into your new site’s directory and start it up.
+1.  **Install dependencies & start project.**
 
     ```shell
-    cd my-default-starter/
+    yarn
     gatsby develop
     ```

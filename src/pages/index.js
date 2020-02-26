@@ -8,7 +8,7 @@ const IndexPage = ({ data }) => {
   const articles = data.allContentfulArticleBase.edges
   return (
     <Layout>
-      <SEO title="Home" keywords={[`epsy`, 'content']} />
+      <SEO title="Home" keywords={[`foxglove`, 'content']} />
       <h1>{"All Articles"}</h1>
       <div className="articles">
         {articles.map(({ node: article }) => (
